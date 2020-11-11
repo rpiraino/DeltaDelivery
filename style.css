@@ -1,0 +1,69 @@
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+body{
+    background-color:#b19cd9;    
+    font: 15px/1.5  'El Messiri', sans-serif;
+    padding:10;
+    margin:0;
+    background-color: white;
+    text-align: center;
+  }
+
+  .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;  
+    padding:10px;
+    }
+
+  /*header*/
+  header{
+    background:#000000;
+    color:#ffffff;
+    padding-top:30px;
+    min-height:70px;
+    border-bottom:#b19cd9 3px solid;
+  }
+
+/* Create three unequal columns that floats next to each other */
+.column {
+    float:left;
+  }
+  
+  /* Left and right column */
+  .column.side {
+    width: 25%;
+  }
+ 
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+  }
+
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }}
