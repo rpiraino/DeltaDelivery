@@ -41,21 +41,22 @@
   
    var firestore = firebase.firestore();
   
-   var docRef = firestore.collection("Tracking");
+   var docRef = firestore.collection("Delivery");
    var customerName = document.getElementById("nameC");
    var customerTrack = document.getElementById("numberT");
    var customerLocation = document.getElementById("locationT");
   
    function save() {
-
+          var e = "";
           var x = customerName.value;
           var y = customerTrack.value;
           var z = customerLocation.value;
 
-          docRef.doc(x).set({
+          docRef.doc(y).set({
+              ETA: e,
               Name: x,
-              Tracking: y,
-              Location: z
+              OrderID: y,
+              Residence: z
          
           });
   
