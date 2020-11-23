@@ -12,24 +12,43 @@ var config = {
  firebase.initializeApp(config);
 
  var firestore = firebase.firestore();
-
+ var array = [];
+ var count = 0;
  var docRef = firestore.collection("Delivery");
+ var docRefDriver = firestore.collection("Customers");
  var customerName = document.getElementById("nameC");
  var customerTrack = document.getElementById("numberT");
  var customerLocation = document.getElementById("locationT");
 
+ //Saves the user input to Firestore and assigns a Driver from the database
  function save() {
         var e = "";
         var x = customerName.value;
         var y = customerTrack.value;
         var z = customerLocation.value;
 
+        //Saves the user input
         docRef.doc(y).set({
             ETA: e,
             Name: x,
             OrderID: y,
             Residence: z
        
+        });
+
+        var random = (Math.random()*array.length);
+
+        //Grabs every document from Driver collection and adds to an array
+        docRefDriver.get().then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+        
+                array[count] = doc.data();
+                count++;
+            
+            });
+            var randomDriver = array[random];
+            //Assigns the driver to the new "Driver" collection for the customer
+            docRef.doc(y).collection("Driver").add(randomDriver);
         });
 
     }
