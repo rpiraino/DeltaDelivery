@@ -35,8 +35,7 @@ var config = {
             Residence: z
        
         });
-
-        var random = (Math.random()*array.length);
+        
 
         //Grabs every document from Driver collection and adds to an array
         docRefDriver.get().then(function(querySnapshot) {
@@ -46,9 +45,13 @@ var config = {
                 count++;
             
             });
+            var random = parseInt(Math.random() * array.length);
             var randomDriver = array[random];
+            console.log(random);
+            console.log(randomDriver);
             //Assigns the driver to the new "Driver" collection for the customer
             docRef.doc(y).collection("Driver").add(randomDriver);
-        });
+            });
+            
 
     }
