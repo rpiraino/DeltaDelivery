@@ -45,7 +45,7 @@ var config = {
                 count++;
             
             });
-            var random = parseInt(Math.random() * array.length);
+            var random = parseInt((Math.random() * array.length)-1);
             var randomDriver = array[random];
             console.log(random);
             console.log(randomDriver);
